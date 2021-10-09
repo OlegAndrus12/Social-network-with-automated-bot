@@ -9,7 +9,8 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True, default='')
     body = models.TextField(blank=True, default='')
-    thumbnails = models.PositiveSmallIntegerField(default = 0)
+    thumb_up_count = models.PositiveSmallIntegerField(default = 0)
+    thumb_down_count = models.PositiveSmallIntegerField(default = 0)
 
     class Meta:
         ordering = ['created']
