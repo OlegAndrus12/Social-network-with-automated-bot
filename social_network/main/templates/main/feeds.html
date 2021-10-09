@@ -27,6 +27,11 @@
               <p class="card-text"><small class="text-muted">Created at: {{post.created}}</small></p>
             </div>
             <img class="card-img-bottom" src="https://static.pingendo.com/cover-bubble-dark.svg" alt="Card image cap">
+                {% if post.id in already_liked %} 
+                  <a role="btn"  name="{{ post.id }}" style="font-size:20px;color: blue;" class="btn likin" id="likin"></i>Click to dislike</a>
+                {% else %}
+                  <a name="{{ post.id }}" style="font-size:20px;color: black;" class="btn likin" id="likin">Click to like</a>
+                {% endif %}
           </div>
         </div>
       </div>
@@ -34,3 +39,32 @@
     <br/>
     {%endfor%}
 {%endblock content%}
+
+{%block javascript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+// AJAX CALL
+$('.likin').click(function(){
+    $.ajax({
+             type: "POST",
+             url: "{% url 'feeds' %}",
+             data: {'post_id': $(this).attr('name'),'operation':'like_submit','csrfmiddlewaretoken': '{{ csrf_token }}'},
+             dataType: "json",
+             success: function(response) {
+              selector = document.getElementsByName(response.post_id);
+              console.log($(selector).text)
+                    if(response.liked==true){
+                      $(selector).css("color","blue");
+                      $(selector).text("Click to dislike")
+                    }
+                    else if(response.liked==false){
+                      $(selector).css("color","black");
+                      $(selector).text("Click to like")
+                    }
+              }
+
+        });
+
+  })
+</script>
+{%endblock%}

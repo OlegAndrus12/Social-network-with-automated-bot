@@ -9,8 +9,11 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True, default='')
     body = models.TextField(blank=True, default='')
-    thumb_up_count = models.PositiveSmallIntegerField(default = 0)
-    thumb_down_count = models.PositiveSmallIntegerField(default = 0)
+    likes = models.ManyToManyField(User, blank = "True", related_name = "likes")
+
+    @property
+    def total_likes(self):
+        return self.likes.count()
 
     class Meta:
         ordering = ['created']
