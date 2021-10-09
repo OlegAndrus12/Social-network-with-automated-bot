@@ -7,7 +7,7 @@ def register(request):
         user_registration_form = RegisterForm(request.POST)
         if user_registration_form.is_valid():
             user_registration_form.save()
-        redirect()
+        redirect("/feeds")
     else:
         user_registration_form = RegisterForm()
     

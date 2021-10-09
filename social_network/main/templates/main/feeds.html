@@ -1,1 +1,31 @@
-<h1>There are your feeds</h1>
+{% extends 'main/base.html' %}
+{% block title %}Feeds{%endblock title%}
+{%block content%}
+        <nav class="navbar navbar-expand-md" style="background-image: linear-gradient(to left bottom, rgba(189, 195, 199, .75), rgba(44, 62, 80, .75)); background-size: 100%;">
+          <div class="container"> <a class="navbar-brand" href="#">
+              <i class="fa d-inline fa-lg fa-stop-circle"></i>
+              <b> BRAND</b>
+            </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar10">
+              <ul class="navbar-nav ml-auto">
+              </ul><a class="btn btn-lg mx-1 btn-outline-dark" href="{% url 'logout' %}">Logout</a>
+            </div>
+          </div>
+        </nav>
+    <div class="container mt-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <img class="card-img-bottom" src="https://static.pingendo.com/cover-bubble-dark.svg" alt="Card image cap">
+          </div>
+        </div>
+      </div>
+    </div>
+{%endblock content%}
