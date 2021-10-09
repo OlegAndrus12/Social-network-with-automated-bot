@@ -2,4 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def register(request):
-    return render(request, "main/base.html")
+    return render(request, "register/register.html")
+
+def login(request):
+    return render(request, "register/login.html")
