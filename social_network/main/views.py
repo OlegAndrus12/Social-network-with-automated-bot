@@ -29,7 +29,6 @@ def feeds(request):
     for post in posts:
         if(post.likes.filter(id=user_id).exists()):
            already_liked.append(post.id)
-    print(post.likes)
     context = {"posts":posts,"already_liked":already_liked}
     return render(request, "main/feeds.html", context)
 
