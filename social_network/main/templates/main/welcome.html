@@ -18,7 +18,7 @@
       <div class="row">
         <div class="col-md-8 mx-auto"> <img src="{% static 'main/images/eye.png' %}" height="75px" alt="eye">
           <h1 class="display-3 mb-4">Welcome my friend!</h1>
-          <p class="lead mb-5">Gandalf: You cannot pass! I am a servant of the Secret Fire, wielder of the Flame of Anor. The dark fire will not avail you, Flame of Udun! Go back to the login page or register yourself. May the force be with you</p> <a class="btn btn-lg mx-1 btn-outline-dark" href="{% url 'login' %}">Login</a> <a class="btn btn-lg mx-1 btn-outline-dark" href="{% url 'register' %}">Register</a>
+          <p class="lead mb-5">Gandalf: You cannot pass! I am a servant of the Secret Fire, wielder of the Flame of Anor. The dark fire will not avail you, Flame of Udun! Go back to the login page or register yourself. May the force be with you</p> <a class="btn btn-lg mx-1 btn-outline-dark" name = "login_btn" href="{% url 'login' %}">Login</a> <a class="btn btn-lg mx-1 btn-outline-dark" href="{% url 'register' %}" name = "register_btn">Register</a>
         </div>
       </div>
     </div>
