@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
-from main.models import Post
+from main.models import Post, UserLike
 from main.forms import CreatePostForm
 from django.contrib.auth.decorators import login_required
 import json
