@@ -24,24 +24,24 @@ time.sleep(3)
 login_user(driver, "admin", "admin")
 time.sleep(3)
 like_post_activity(driver)
-# logout_user(driver)
-# time.sleep(3)
+logout_user(driver)
+time.sleep(3)
 
 
-# for i in rules["number_of_users"]:
-#     mock_user = {
-#         "username" : generate_username(),
-#         "email" : utility.random_email_generator(),
-#         "password" : utility.generate_random_password(12),
-#     }
-#     register_user(driver, mock_user["username"], mock_user["email"], mock_user["password"])
-#     time.sleep(2)
-#     for j in rules["max_posts_per_user"]:
-#         create_post(driver)
-#         time.sleep(2)
+for i in range(rules["number_of_users"]):
+    mock_user = {
+        "username" : generate_username(),
+        "email" : utility.random_email_generator(),
+        "password" : utility.generate_random_password(12),
+    }
+    register_user(driver, mock_user["username"], mock_user["email"], mock_user["password"])
+    time.sleep(2)
+    for j in range(rules["max_posts_per_user"]):
+        create_post(driver)
+        time.sleep(2)
     
-#     like_post_activity(driver, count_of_likes = rules["max_likes_per_user"])
+    like_post_activity(driver, count_of_likes = rules["max_likes_per_user"])
     
-#     logout_user(driver)
+    logout_user(driver)
 
-# driver.close()
+driver.close()

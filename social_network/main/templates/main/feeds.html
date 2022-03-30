@@ -2,7 +2,7 @@
 {% block title %}Feeds{%endblock title%}
 {%block content%}
         <nav class="navbar navbar-expand-md mb-5" style="background-image: linear-gradient(to left bottom, rgba(189, 195, 199, .75), rgba(44, 62, 80, .75)); background-size: 100%;">
-          <div class="container"> <a class="btn btn-lg mx-1 btn-outline-dark" href="#">
+          <div class="container"> <a class="btn btn-lg mx-1 btn-outline-dark" href="{% url 'welcome' %}">
               {% load static %}
               <img src="{% static 'main/images/icon.png' %}" height="30px" alt="eye">
               <b> In Gandalf </b>
@@ -11,8 +11,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar10">
               <ul class="navbar-nav ml-auto">
-              </ul><a class="btn btn-lg mx-1 btn-outline-dark" href="{% url 'create_post' %}">Create post</a>
-              <a class="btn btn-lg mx-1 btn-outline-dark" href="{% url 'logout' %}">Logout</a>
+              </ul><a class="btn btn-lg mx-1 btn-outline-dark" name = "create_post_btn" href="{% url 'create_post' %}">Create post</a>
+              <a class="btn btn-lg mx-1 btn-outline-dark" name = "logout_btn" href="{% url 'logout' %}">Logout</a>
             </div>
           </div>
         </nav>
@@ -28,9 +28,9 @@
             </div>
             <img class="card-img-bottom" src="https://static.pingendo.com/cover-bubble-dark.svg" alt="Card image cap">
                 {% if post.id in already_liked %} 
-                  <a role="btn"  name="{{ post.id }}" style="font-size:20px;color: blue;" class="btn likin" id="likin"></i>Click to dislike : {{post.total_likes}}</a>
+                  <a role="btn"  name="{{post.id}}" style="font-size:20px;color: blue;" class="btn likin" id="likin"></i>Click to dislike : {{post.total_likes}}</a>
                 {% else %}
-                  <a name="{{ post.id }}" style="font-size:20px;color: black;" class="btn likin" id="likin">Click to like : {{post.total_likes}}</a>
+                  <a role="btn" name="{{post.id}}" style="font-size:20px;color: black;" class="btn likin" id="likin">Click to like : {{post.total_likes}}</a>
                 {% endif %}
           </div>
         </div>
